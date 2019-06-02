@@ -1,23 +1,6 @@
 <div class="container">
-  <div class="row align-items-center" style="height:90vh";>
-    <div class="col-6 mx-auto">
-      <div class="jumbotron">
-        <p class="landing-title text-center">Startup Box</p>
-
-
-  <%= simple_form_for :search, url: startups_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-    <%= f.input :name, input_html: {value: ""} %>   
-    <%= f.submit "Search", class: "btn btn-primary" %>
+  <%= simple_form_for :search, url: startups_path, method: "GET", html: { class: 'form-inline centered-search' } do |f| %>
+    <%= f.input :name , label: false ,  input_html: {value: ""} %>   
+    <%= f.submit "Search", class: "btn btn-dark" %>
   <% end %>
-
-
-        <!-- <form>
-          <div class="form-group">
-            <input type="" class="form-control" id="startupSearch" placeholder="Melon Innovation">
-            <small id="searchDescription" class="form-text text-muted">Encontre qualquer Startup</small>
-          </div>
-        </form> -->
-      </div>
-    </div>
-  </div>
 </div>

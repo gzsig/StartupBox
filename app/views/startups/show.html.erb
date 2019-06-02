@@ -20,12 +20,13 @@
       <%= person.linkedin %>
     </div>
   <% end %>
-invest
+  
   <% @investors.each do |investor|%>
     <div class="card">
       <%= investor.name %>
       <%= investor.last_name %>
       <%= investor.linkedin %>
+      <%= @investments.find_by(investor: investor, startup: @startup).amount %>
     </div>
   <% end %>
 </div>
