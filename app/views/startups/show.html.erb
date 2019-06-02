@@ -12,4 +12,10 @@
   <li>youtube: <%= @startup.youtube%></li>
   <li>linkedin: <%= @startup.linkedin%></li>
   <li>market: <%= @startup.market%></li>
+
+  <% @people.each do |person|%>
+    <%= person.name %>
+    <%= person.last_name %>
+    <%= person.linkedin %>
+  <% end %>
 </div>
