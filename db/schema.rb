@@ -10,19 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_175303) do
+ActiveRecord::Schema.define(version: 2019_06_02_022844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "investments", force: :cascade do |t|
     t.bigint "startup_id"
-    t.bigint "person_id"
+    t.bigint "investor_id"
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["person_id"], name: "index_investments_on_person_id"
+    t.index ["investor_id"], name: "index_investments_on_investor_id"
     t.index ["startup_id"], name: "index_investments_on_startup_id"
+  end
+
+  create_table "investors", force: :cascade do |t|
+    t.string "name"
+    t.string "last_name"
+    t.string "linkedin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "owners", force: :cascade do |t|
@@ -60,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_175303) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "investments", "people"
+  add_foreign_key "investments", "investors"
   add_foreign_key "investments", "startups"
   add_foreign_key "owners", "people"
   add_foreign_key "owners", "startups"

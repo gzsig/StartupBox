@@ -1,4 +1,4 @@
 class Investment < ApplicationRecord
   belongs_to :startup
-  belongs_to :person
+  belongs_to :investor
 end
