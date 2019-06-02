@@ -7,7 +7,7 @@
   -webkit-transform: translate(-50%, -50%);
 }
 
-.testing {
+.index-card-position {
   display: flex;
   justify-content: space-around;
 }
@@ -137,20 +137,8 @@
   display: block;
 }
 
-.card .additional .stats div.title {
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.card .additional .stats div.value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 1.5rem;
-}
-
-.card .additional .stats div.value.infinity {
-  font-size: 2.5rem;
+.stats a {
+  text-decoration: none;
 }
 
 .card .general {
