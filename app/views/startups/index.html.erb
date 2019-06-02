@@ -1,0 +1,7 @@
+<div class="container">
+  <% @startups.each do |startup|%>
+    <%= link_to startup_path(startup) do %>
+      <%= startup.name %>
+    <% end %>
+  <% end %>
+</div>
