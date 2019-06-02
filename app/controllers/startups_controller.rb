@@ -11,5 +11,6 @@ class StartupsController < ApplicationController
   def show
     @startup = Startup.find(params[:id])
     @people = @startup.people
+    @investors = @startup.investors
   end
 end

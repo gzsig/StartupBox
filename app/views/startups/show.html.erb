@@ -14,8 +14,18 @@
   <li>market: <%= @startup.market%></li>
 
   <% @people.each do |person|%>
-    <%= person.name %>
-    <%= person.last_name %>
-    <%= person.linkedin %>
+    <div class="card">
+      <%= person.name %>
+      <%= person.last_name %>
+      <%= person.linkedin %>
+    </div>
+  <% end %>
+invest
+  <% @investors.each do |investor|%>
+    <div class="card">
+      <%= investor.name %>
+      <%= investor.last_name %>
+      <%= investor.linkedin %>
+    </div>
   <% end %>
 </div>

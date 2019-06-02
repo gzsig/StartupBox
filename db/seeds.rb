@@ -13,14 +13,19 @@ Startup.create( name: "Banky", website: "banky.com.br", logo: "banky.png", pitch
 Startup.create( name: "Blue", website: "blue.com.br", logo: "blue.png", pitch: "A Blue é a nova maneira de prever doenças crônicas, usando Inteligência Artificial para calcular os riscos de acordo com cada perfil.", about: "A principal missão da Inteligência Blue é tornar infinita a ação de construir e viver momentos inesquecíveis, e para isso vem se aprimorando para superar o primeiro passo... Vencer doenças crônicas!!", founded: "Out 2018", number_of_employees: "1-10", facebook: "facebook.com", twitter: "twitter.com", instagram: "instagram.com", youtube: "youtube.com", linkedin: "linkedin.com", market: "saude")
 
 puts "creating 4 people"
-
 Person.create(name: "Matheus", last_name: "Marotzke", linkedin:"linkedin.com")
 Person.create(name: "Rodrigo", last_name: "Tognini", linkedin:"linkedin.com")
 Person.create(name: "Pedro", last_name: "Freire", linkedin:"linkedin.com")
 Person.create(name: "Felipe", last_name: "Buniac", linkedin:"linkedin.com")
 
-puts "making links"
+puts "creating an investor"
+Investor.create(name: "Gabriel", last_name:"Zsigmond", linkedin:"linkedin.com")
+
+puts "making owner links"
 Owner.create(startup:Startup.find_by(name:"Melon Innovation"), person: Person.find_by(name: "Matheus"))
 Owner.create(startup:Startup.find_by(name:"Melon Innovation"), person: Person.find_by(name: "Felipe"))
 Owner.create(startup:Startup.find_by(name:"Banky"), person: Person.find_by(name: "Rodrigo"))
 Owner.create(startup:Startup.find_by(name:"Blue"), person: Person.find_by(name: "Pedro"))
+
+puts "making investor links"
+Investment.create(startup:Startup.find_by(name:"Melon Innovation"), investor: Investor.find_by(name: "Gabriel"), amount: 50000)
