@@ -1,7 +1,13 @@
 <div class="container">
   <% @startups.each do |startup|%>
-    <%= link_to startup_path(startup) do %>
-      <%= startup.name %>
+    <%= link_to startup_path(startup),class:"m-1", style:"text-decoration: none" do %>
+      <span class="card-product">
+        <img src=<%=startup.logo%>>
+        <div class="card-product-infos">
+          <h2><%= startup.name %></h2>
+          <p><%= startup.pitch %></p>
+        </div>
+      </span>
     <% end %>
   <% end %>
 </div>

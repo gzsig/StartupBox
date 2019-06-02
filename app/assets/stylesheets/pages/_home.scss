@@ -1,9 +1,8 @@
 // Specific CSS for your home-page
-.landing-title{
-  font-size: 30px;
-  font-weight: 600;
-}
-.jumbotron{
-  border-radius: 7px;
-  background: linear-gradient(#EB3349, #F45C43);
+.centered-search {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
 }
