@@ -4,7 +4,7 @@ class StartupsController < ApplicationController
     @search = params["search"]
     if @search.present?
       @name = @search["name"]
-      @startups = Startup.where("name ILIKE ?", "%#{@name}%")
+      @startups = Startup.global_search(@name)
     end
   end
 
