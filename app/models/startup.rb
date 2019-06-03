@@ -8,8 +8,10 @@ class Startup < ApplicationRecord
   associated_against: {
     people: [ :name, :last_name ],
     investors: [ :name, :last_name ]
+  },
+  using: {
+    tsearch: { prefix: true, dictionary: "portuguese" }
   }
-
 
   has_many :owners
   has_many :people, through: :owners
