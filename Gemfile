@@ -4,6 +4,9 @@ ruby '2.5.3'
 # gem to make easier search
 gem 'pg_search'
 
+# seeding with mongoDB
+gem 'mongo', '~> 2.2', '>= 2.2.5'
+
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
