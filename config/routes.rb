@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :startups, only: %i[show index]
-  # root to: 'startups#index'
+  get '/testing', to: 'pages#testing'
   root to: 'pages#home'
 end

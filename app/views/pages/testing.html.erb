@@ -1,0 +1,22 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">  <img src='https://meloninnovation.com/img/favicon.ico'> </a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+
+    <div class="ui stackable secondary pointing menu">
+      <%= link_to "Home", :root , class: "item" %>
+      <%= link_to "Startups", startups_path , class: "item" %>
+      <div class="right menu">
+        <div class="item">
+          <form class="" action="/startups" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <div class="ui transparent icon input">
+              <input value="" class="string required" required="required" aria-required="true" type="text" name="search[name]" id="search_name" placeholder="Search"/>
+              <i class="search link icon"></i>
+            </div>   
+          </form>
+        </div>
+      </div>
+    </div>
