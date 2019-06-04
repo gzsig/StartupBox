@@ -10,20 +10,28 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <div class="ui stackable secondary pointing menu">
-      <%= link_to "Home", :root , class: "item" %>
-      <%= link_to "Startups", startups_path , class: "item" %>
-      <div class="right menu">
-        <div class="item">
-          <form class="" action="/startups" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-            <div class="ui transparent icon input">
-              <input value="" class="string required" required="required" aria-required="true" type="text" name="search[name]" id="search_name" placeholder="Search"/>
-              <i class="search link icon"></i>
-            </div>   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
+      <%= link_to :root, class: "navbar-brand" do %>
+        <%= image_tag "https://meloninnovation.com/img/favicon.ico", style: "height:3rem" %>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to "Home", :root , class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Startups", startups_path , class: "nav-link" %>
+          </li>
+        </ul>
+          <form class="form-inline my-2 my-lg-0" action="/startups" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <input value="" class="form-control mr-sm-2" required="required" aria-required="true" type="text" name="search[name]" id="search_name" placeholder="Search" style="max-width:50vw; margin-right:0.5rem"/>
+            <i class="search link icon"></i>
           </form>
-        </div>
       </div>
-    </div>
+    </nav>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

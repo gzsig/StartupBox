@@ -1,17 +1,28 @@
 <div class="container">
-  <li>name: <%= @startup.name%></li>
-  <li>website: <%= @startup.website%></li>
-  <li><%= @startup.logo%></li>
-  <li>pitch: <%= @startup.pitch%></li>
-  <li>about: <%= @startup.about%></li>
-  <li>founded: <%= @startup.founded%></li>
-  <li>number of employees: <%= @startup.number_of_employees%></li>
-  <li>facebook: <%= @startup.facebook%></li>
-  <li>twitter: <%= @startup.twitter%></li>
-  <li>instagram: <%= @startup.instagram%></li>
-  <li>youtube: <%= @startup.youtube%></li>
-  <li>linkedin: <%= @startup.linkedin%></li>
-  <li>market: <%= @startup.market%></li>
+  <div class="row">
+    <div class="col-lg-4">
+      <img src=<%=@startup.logo%> class="startup-avatar">
+      <h1><%= @startup.name%></h1>
+      <p> <%= link_to 'website', @startup.website%> </p>
+      <li>website: <%= @startup.website%></li>
+      <li>facebook: <%= @startup.facebook%></li>
+      <li>twitter: <%= @startup.twitter%></li>
+      <li>instagram: <%= @startup.instagram%></li>
+      <li>youtube: <%= @startup.youtube%></li>
+      <li>linkedin: <%= @startup.linkedin%></li>
+    </div>
+    <div class="col-lg-8">
+      <li>pitch: <%= @startup.pitch%></li>
+      <li>about: <%= @startup.about%></li>
+      <li>market: <%= @startup.market%></li>
+      <li>number of employees: <%= @startup.number_of_employees%></li>
+      <li>founded: <%= @startup.founded%></li>
+    </div>
+  </div>
+</div>
+
+
+
 
   <% @people.each do |person|%>
     <div class="card">
@@ -29,4 +40,3 @@
       <%= @investments.find_by(investor: investor, startup: @startup).amount %>
     </div>
   <% end %>
-</div>
