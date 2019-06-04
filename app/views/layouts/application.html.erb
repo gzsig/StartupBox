@@ -15,11 +15,13 @@
       <%= link_to "Startups", startups_path , class: "item" %>
       <div class="right menu">
         <div class="item">
-          <div class="ui transparent icon input">
-            <input type="text" placeholder="Search...">
-            <i class="search link icon"></i>
-          </div>
-         </div>
+          <form class="" action="/startups" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <div class="ui transparent icon input">
+              <input value="" class="string required" required="required" aria-required="true" type="text" name="search[name]" id="search_name" placeholder="Search"/>
+              <i class="search link icon"></i>
+            </div>   
+          </form>
+        </div>
       </div>
     </div>
     <%= yield %>

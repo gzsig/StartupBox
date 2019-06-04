@@ -1,6 +1,6 @@
 <div class="ui container">
   <%= simple_form_for :search, url: startups_path, method: "GET", html: { class: 'ui form' } do |f| %>
-    <%= f.input :name , label: false ,  input_html: {value: ""}, html: { class: 'field' } %>   
+    <%= f.input :name , label: false,  input_html: {value: ""}, html: { class: 'field' } %>   
     <%= f.submit "Search", class: "ui button" %>
   <% end %>
 </div>
