@@ -1,10 +1,11 @@
 class StartupsController < ApplicationController
   def index
-    @startups = Startup.all
+    @startups = Startup.paginate(:page => params[:page], :per_page => 50)
     @search = params["search"]
     if @search.present?
       @name = @search["name"]
       @startups = Startup.global_search(@name)
+      @startups = @startups.paginate(:page => params[:page], :per_page => 50)
     end
   end
 

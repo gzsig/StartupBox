@@ -10,6 +10,9 @@ gem 'mongo', '~> 2.2', '>= 2.2.5'
 # semantic UI
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
+#   help with pagination
+gem 'will_paginate', '~> 3.1.1'
+
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
