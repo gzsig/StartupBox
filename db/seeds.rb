@@ -25,26 +25,26 @@
 # end
 
 puts "creating 4 people"
-Person.create(name: "Matheus", last_name: "Marotzke", linkedin:"linkedin.com")
-Person.create(name: "Rodrigo", last_name: "Tognini", linkedin:"linkedin.com")
-Person.create(name: "Pedro", last_name: "Freire", linkedin:"linkedin.com")
-Person.create(name: "Felipe", last_name: "Buniac", linkedin:"linkedin.com")
+Person.create(name: "Matheus Marotzke", position: "Co Founder", linkedin:"linkedin.com")
+Person.create(name: "Rodrigo Tognini", position: "Co Founder", linkedin:"linkedin.com")
+Person.create(name: "Pedro Freire", position: "Co Founder", linkedin:"linkedin.com")
+Person.create(name: "Felipe Buniac", position: "Co Founder", linkedin:"linkedin.com")
 
 puts "creating an investor"
 Investor.create(name: "Gabriel", last_name:"Zsigmond", linkedin:"linkedin.com")
 Investor.create(name: "Daniel", last_name:"Schor", linkedin:"linkedin.com")
 Investor.create(name: "Vitor", last_name:"Da Silva", linkedin:"linkedin.com")
-Investor.create(name: "Pedro", last_name:"Villares", linkedin:"linkedin.com")
+Investor.create(name: "Luiz", last_name:"da Silva", linkedin:"linkedin.com")
 
 puts "making owner links"
-Owner.create(startup:Startup.find_by(name:"Melon Innovation"), person: Person.find_by(name: "Matheus"))
-Owner.create(startup:Startup.find_by(name:"Melon Innovation"), person: Person.find_by(name: "Felipe"))
-Owner.create(startup:Startup.find_by(name:"Banky"), person: Person.find_by(name: "Rodrigo"))
-Owner.create(startup:Startup.find_by(name:"Blue"), person: Person.find_by(name: "Pedro"))
+Owner.create(startup:Startup.find_by(name:"Melon Innovation"), person: Person.find_by(name: "Matheus Marotzke"))
+Owner.create(startup:Startup.find_by(name:"Melon Innovation"), person: Person.find_by(name: "Felipe Buniac"))
+Owner.create(startup:Startup.find_by(name:"Banky"), person: Person.find_by(name: "Rodrigo Tognini"))
+Owner.create(startup:Startup.find_by(name:"Blue"), person: Person.find_by(name: "Pedro Freire"))
 
 puts "making investor links"
 Investment.create(startup:Startup.find_by(name:"Melon Innovation"), investor: Investor.find_by(name: "Gabriel"), amount: 2000)
-Investment.create(startup:Startup.find_by(name:"Melon Innovation"), investor: Investor.find_by(name: "Pedro"), amount: 50000)
+Investment.create(startup:Startup.find_by(name:"Melon Innovation"), investor: Investor.find_by(name: "Luiz"), amount: 50000)
 Investment.create(startup:Startup.find_by(name:"Banky"), investor: Investor.find_by(name: "Gabriel"), amount: 12000)
 Investment.create(startup:Startup.find_by(name:"Blue"), investor: Investor.find_by(name: "Vitor"), amount: 2000)
 Investment.create(startup:Startup.find_by(name:"Blue"), investor: Investor.find_by(name: "Daniel"), amount: 20000)
@@ -52,7 +52,7 @@ Investment.create(startup:Startup.find_by(name:"Banky"), investor: Investor.find
 
 
 
-client = Mongo::Client.new('mongodb+srv://gabriel:Gz%40db3611@cluster0-ozy7g.mongodb.net/startupsDB?retryWrites=true&w=majority')
+client = Mongo::Client.new(ENV["CLIENT"])
 
 # db = client.database
 
@@ -66,10 +66,10 @@ Startup.create( name: "Blue", website: "https://blue.com.br", location: "Insper 
 
 puts "creating 15 startups from mongo"
 cont = 0
-collection.find( {  } ).each do |startup|
+collection.find( {  } ).first(100).each do |startup|
   cont += 1
   puts "#{cont} - NEW ELEMENT"
-  name = startup['name']
+  s_name = startup['name']
   market = startup['market']
   logo = startup['logo']
   foundation = startup['foundation']
@@ -84,7 +84,21 @@ collection.find( {  } ).each do |startup|
   youtube = startup['youtube']
   instagram = startup['instagram']
 
-  Startup.create( name: name, website: website, location: location,logo: logo, pitch: pitch, about: about, founded: foundation, number_of_employees: employees, facebook: facebook, twitter: twitter, instagram: instagram, youtube: youtube, linkedin: linkedin, market: market)
+  Startup.create( name: s_name, website: website, location: location,logo: logo, pitch: pitch, about: about, founded: foundation, number_of_employees: employees, facebook: facebook, twitter: twitter, instagram: instagram, youtube: youtube, linkedin: linkedin, market: market)
+
+  if startup['members'] != nil
+    startup['members'].each do |member|
+      name = member['name']
+      position = member['position']
+      linkedin = member['linkedin']
+      if Person.find_by(name: name)
+        Owner.create(startup:Startup.find_by(name: startup['name']), person: Person.find_by(name: name))  
+      else
+        Person.create(name: name, position: position, linkedin: linkedin)
+        Owner.create(startup:Startup.find_by(name: startup['name']), person: Person.find_by(name: name))
+      end
+    end
+  end
 
   puts "DONE"
   puts "\n"
