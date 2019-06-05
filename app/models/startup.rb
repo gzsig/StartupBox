@@ -6,7 +6,7 @@ class Startup < ApplicationRecord
     about: 'C'
   },
   associated_against: {
-    people: [ :name, :last_name ],
+    people: [ :name ],
     investors: [ :name, :last_name ]
   },
   using: {

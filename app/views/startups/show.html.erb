@@ -32,7 +32,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-8  ui card p-3">
       pitch: <p> <%= @startup.pitch%> </p>
       about: <p> <%= @startup.about%> </p>
       market: <p> <%= @startup.market%> </p>
@@ -40,41 +40,56 @@
       founded: <p> <%= @startup.founded%> </p>
     </div>
   </div>
-
-
-
-
-    <div class="ui cards">
-      <% @people.each do |person|%>
-          <div class="card">
-            <div class="content">
-              <%# <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg"> %>
-              <div class="header">
-                <%= person.name %> <%= person.last_name %>
-              </div>
-              <div class="meta">
-                <%= person.linkedin %>
-              </div>
-              <div class="description">
-                Position
-              </div>
-            </div>
-            <div class="extra content">
-              <div class="ui two buttons">
-                <div class="ui basic green button">Other involvements</div>
-              </div>
-            </div>
+  <h2>People</h2>
+  <div class="ui cards" style="margin-left:auto; margin-right:auto">
+    <% @people.each do |person|%>
+      <div class="card" style="margin-left:auto; margin-right:auto">
+        <div class="content">
+          <%# <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg"> %>
+          <div class="header">
+            <%= person.name %>
           </div>
-      <% end %>
-    </div>
-  
-  <% @investors.each do |investor|%>
-    <div class="ui card">
-      <%= investor.name %>
-      <%= investor.last_name %>
-      <%= investor.linkedin %>
-      <%= @investments.find_by(investor: investor, startup: @startup).amount %>
-    </div>
-  <% end %>
-
+          <% if person.linkedin %>
+            <div class="meta">
+              <%= link_to person.linkedin, target: "_blank" do %>
+                <i class="show-social-network fab fa-linkedin"></i>
+              <% end %>
+            </div>
+          <% end %>
+          <div class="description">
+            <%= person.position %>
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui two buttons">
+            <div class="ui basic green button">Other involvements</div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h2>Investors</h2>
+  <div class="ui cards" style="margin-left:auto; margin-right:auto">
+    <% @investors.each do |investor|%>
+      <div class="card" style="margin-left:auto; margin-right:auto">
+        <div class="content">
+          <%# <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg"> %>
+          <div class="header">
+            <%= investor.name %> <%= investor.last_name %>
+          </div>
+          <div class="meta">
+            <%= investor.linkedin %>
+          </div>
+          <div class="description">
+            <%= @investments.find_by(investor: investor, startup: @startup).amount %>
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui two buttons">
+            <div class="ui basic violet button">Other involvements</div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
