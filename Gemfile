@@ -13,6 +13,9 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 #   help with pagination
 gem 'will_paginate', '~> 3.1.1'
 
+# add jquerry
+gem 'jquery-rails'
+
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'

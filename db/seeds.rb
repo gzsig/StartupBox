@@ -24,31 +24,31 @@
 #   Startup.create( name: Faker::Company.unique.name, website: Faker::Internet.url, location: Faker::Address.street_address, logo: Faker::Company.logo, pitch: Faker::Company.catch_phrase, about: Faker::Marketing.buzzwords, founded: "Out 2018", number_of_employees: "1-10", facebook: "facebook.com", twitter: Faker::Twitter.screen_name, instagram: "instagram.com", youtube: "youtube.com", linkedin: "linkedin.com", market: Faker::Company.industry)
 # end
 
-# puts "creating 4 people"
-# Person.create(name: "Matheus", last_name: "Marotzke", linkedin:"linkedin.com")
-# Person.create(name: "Rodrigo", last_name: "Tognini", linkedin:"linkedin.com")
-# Person.create(name: "Pedro", last_name: "Freire", linkedin:"linkedin.com")
-# Person.create(name: "Felipe", last_name: "Buniac", linkedin:"linkedin.com")
+puts "creating 4 people"
+Person.create(name: "Matheus", last_name: "Marotzke", linkedin:"linkedin.com")
+Person.create(name: "Rodrigo", last_name: "Tognini", linkedin:"linkedin.com")
+Person.create(name: "Pedro", last_name: "Freire", linkedin:"linkedin.com")
+Person.create(name: "Felipe", last_name: "Buniac", linkedin:"linkedin.com")
 
-# puts "creating an investor"
-# Investor.create(name: "Gabriel", last_name:"Zsigmond", linkedin:"linkedin.com")
-# Investor.create(name: "Daniel", last_name:"Schor", linkedin:"linkedin.com")
-# Investor.create(name: "Vitor", last_name:"Da Silva", linkedin:"linkedin.com")
-# Investor.create(name: "Pedro", last_name:"Villares", linkedin:"linkedin.com")
+puts "creating an investor"
+Investor.create(name: "Gabriel", last_name:"Zsigmond", linkedin:"linkedin.com")
+Investor.create(name: "Daniel", last_name:"Schor", linkedin:"linkedin.com")
+Investor.create(name: "Vitor", last_name:"Da Silva", linkedin:"linkedin.com")
+Investor.create(name: "Pedro", last_name:"Villares", linkedin:"linkedin.com")
 
-# puts "making owner links"
-# Owner.create(startup:Startup.find_by(name:"Melon Innovation"), person: Person.find_by(name: "Matheus"))
-# Owner.create(startup:Startup.find_by(name:"Melon Innovation"), person: Person.find_by(name: "Felipe"))
-# Owner.create(startup:Startup.find_by(name:"Banky"), person: Person.find_by(name: "Rodrigo"))
-# Owner.create(startup:Startup.find_by(name:"Blue"), person: Person.find_by(name: "Pedro"))
+puts "making owner links"
+Owner.create(startup:Startup.find_by(name:"Melon Innovation"), person: Person.find_by(name: "Matheus"))
+Owner.create(startup:Startup.find_by(name:"Melon Innovation"), person: Person.find_by(name: "Felipe"))
+Owner.create(startup:Startup.find_by(name:"Banky"), person: Person.find_by(name: "Rodrigo"))
+Owner.create(startup:Startup.find_by(name:"Blue"), person: Person.find_by(name: "Pedro"))
 
-# puts "making investor links"
-# Investment.create(startup:Startup.find_by(name:"Melon Innovation"), investor: Investor.find_by(name: "Gabriel"), amount: 2000)
-# Investment.create(startup:Startup.find_by(name:"Melon Innovation"), investor: Investor.find_by(name: "Pedro"), amount: 50000)
-# Investment.create(startup:Startup.find_by(name:"Banky"), investor: Investor.find_by(name: "Gabriel"), amount: 12000)
-# Investment.create(startup:Startup.find_by(name:"Blue"), investor: Investor.find_by(name: "Vitor"), amount: 2000)
-# Investment.create(startup:Startup.find_by(name:"Blue"), investor: Investor.find_by(name: "Daniel"), amount: 20000)
-# Investment.create(startup:Startup.find_by(name:"Banky"), investor: Investor.find_by(name: "Daniel"), amount: 20000)
+puts "making investor links"
+Investment.create(startup:Startup.find_by(name:"Melon Innovation"), investor: Investor.find_by(name: "Gabriel"), amount: 2000)
+Investment.create(startup:Startup.find_by(name:"Melon Innovation"), investor: Investor.find_by(name: "Pedro"), amount: 50000)
+Investment.create(startup:Startup.find_by(name:"Banky"), investor: Investor.find_by(name: "Gabriel"), amount: 12000)
+Investment.create(startup:Startup.find_by(name:"Blue"), investor: Investor.find_by(name: "Vitor"), amount: 2000)
+Investment.create(startup:Startup.find_by(name:"Blue"), investor: Investor.find_by(name: "Daniel"), amount: 20000)
+Investment.create(startup:Startup.find_by(name:"Banky"), investor: Investor.find_by(name: "Daniel"), amount: 20000)
 
 
 

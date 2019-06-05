@@ -40,24 +40,41 @@
       founded: <p> <%= @startup.founded%> </p>
     </div>
   </div>
-</div>
 
 
 
 
-  <% @people.each do |person|%>
-    <div class="card">
-      <%= person.name %>
-      <%= person.last_name %>
-      <%= person.linkedin %>
+    <div class="ui cards">
+      <% @people.each do |person|%>
+          <div class="card">
+            <div class="content">
+              <%# <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg"> %>
+              <div class="header">
+                <%= person.name %> <%= person.last_name %>
+              </div>
+              <div class="meta">
+                <%= person.linkedin %>
+              </div>
+              <div class="description">
+                Position
+              </div>
+            </div>
+            <div class="extra content">
+              <div class="ui two buttons">
+                <div class="ui basic green button">Other involvements</div>
+              </div>
+            </div>
+          </div>
+      <% end %>
     </div>
-  <% end %>
   
   <% @investors.each do |investor|%>
-    <div class="card">
+    <div class="ui card">
       <%= investor.name %>
       <%= investor.last_name %>
       <%= investor.linkedin %>
       <%= @investments.find_by(investor: investor, startup: @startup).amount %>
     </div>
   <% end %>
+
+</div>
