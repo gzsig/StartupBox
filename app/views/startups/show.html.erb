@@ -1,22 +1,43 @@
 <div class="container">
-  <div class="row">
-    <div class="col-lg-4">
+  <div class="row align-items-center">
+    <div class="col-lg-4 text-center">
       <img src=<%=@startup.logo%> class="startup-avatar">
       <h1><%= @startup.name%></h1>
-      <p> <%= link_to 'website', @startup.website%> </p>
-      <li>website: <%= @startup.website%></li>
-      <li>facebook: <%= @startup.facebook%></li>
-      <li>twitter: <%= @startup.twitter%></li>
-      <li>instagram: <%= @startup.instagram%></li>
-      <li>youtube: <%= @startup.youtube%></li>
-      <li>linkedin: <%= @startup.linkedin%></li>
+      <p> <%= link_to 'website', @startup.website, target: "_blank" %> </p>
+      <div class="social-networks">
+        <% if @facebook %>
+          <%= link_to @facebook, target: "_blank" do %>
+            <i class="show-social-network fab fa-facebook-square"></i>
+          <% end %>
+        <% end %>
+        <% if @youtube %>
+          <%= link_to @youtube, target: "_blank" do %>
+            <i class="show-social-network fab fa-youtube"></i>
+          <% end %>
+        <% end %>
+        <% if @instagram %>
+          <%= link_to @instagram, target: "_blank" do %>
+            <i class="show-social-network fab fa-instagram"></i>
+          <% end %>
+        <% end %>
+        <% if @linkedin %>
+          <%= link_to @linkedin, target: "_blank" do %>
+            <i class="show-social-network fab fa-linkedin"></i>
+          <% end %>
+        <% end %>
+        <% if @twitter %>
+          <%= link_to @twitter, target: "_blank" do %>
+            <i class="show-social-network fab fa-twitter-square"></i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <div class="col-lg-8">
-      <li>pitch: <%= @startup.pitch%></li>
-      <li>about: <%= @startup.about%></li>
-      <li>market: <%= @startup.market%></li>
-      <li>number of employees: <%= @startup.number_of_employees%></li>
-      <li>founded: <%= @startup.founded%></li>
+      pitch: <p> <%= @startup.pitch%> </p>
+      about: <p> <%= @startup.about%> </p>
+      market: <p> <%= @startup.market%> </p>
+      number of employees: <p> <%= @startup.number_of_employees%> </p>
+      founded: <p> <%= @startup.founded%> </p>
     </div>
   </div>
 </div>
