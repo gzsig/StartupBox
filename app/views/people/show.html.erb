@@ -1,5 +1,7 @@
+im here <%= @person.name %>
+
 <div class="ui link cards" style="margin-left:auto; margin-right:auto">
-  <% @startups.each do |startup|%>    
+  <% @person.startups.each do |startup|%>    
     <%= link_to startup_path(startup), style:"text-decoration: none" do %>
       <div class="card" style="margin-left:auto; margin-right:auto">
         <div class="image text-center">
@@ -27,5 +29,3 @@
     <% end %>
   <% end %>
 </div>
-<%= will_paginate @startups, :page_links => false, class:'apple_pagination mt-2' %>
-

@@ -24,6 +24,13 @@
 #   Startup.create( name: Faker::Company.unique.name, website: Faker::Internet.url, location: Faker::Address.street_address, logo: Faker::Company.logo, pitch: Faker::Company.catch_phrase, about: Faker::Marketing.buzzwords, founded: "Out 2018", number_of_employees: "1-10", facebook: "facebook.com", twitter: Faker::Twitter.screen_name, instagram: "instagram.com", youtube: "youtube.com", linkedin: "linkedin.com", market: Faker::Company.industry)
 # end
 
+puts "creating Insper startups"
+
+Startup.create( name: "Melon Innovation", website: "https://meloninnovation.com", location: "Insper CoWorking", logo: 'https://meloninnovation.com/img/favicon.ico', pitch: "Construa grandes projetos que exploram oportunidades. Superam desafios. Cometa erros rápidos. Conserte-os. Lance no mercado.", about: "Somos uma empresa de elaboração de projetos. Nosso objetivo é ajudar o seu negócio a prosperar. Inovação, tecnologia e estratégia são os meios que usamos para alcançá-lo.", founded: "Jan 2019", number_of_employees: "1-10", facebook: "facebook.com", twitter: "twitter.com", instagram: "instagram.com", youtube: "youtube.com", linkedin: "linkedin.com", market: "consultoria")
+Startup.create( name: "Banky", website: "https://banky.com.br", location: "Insper CoWorking", logo: 'https://banky.com.br/static/media/banky_logo.418ba382.svg', pitch: "Chegou a conta digital para freelancers, autônomos e startups. Com transparência, atendimento rápido e sem mensalidade.", about: "A conta digital para pessoa jurídica que busca controle e gestāo.", founded: "Nov 2018", number_of_employees: "1-10", facebook: "facebook.com", twitter: "twitter.com", instagram: "instagram.com", youtube: "youtube.com", linkedin: "linkedin.com", market: "financias")
+Startup.create( name: "Blue", website: "https://blue.com.br", location: "Insper CoWorking",logo: Faker::Company.logo, pitch: "A Blue é a nova maneira de prever doenças crônicas, usando Inteligência Artificial para calcular os riscos de acordo com cada perfil.", about: "A principal missão da Inteligência Blue é tornar infinita a ação de construir e viver momentos inesquecíveis, e para isso vem se aprimorando para superar o primeiro passo... Vencer doenças crônicas!!", founded: "Out 2018", number_of_employees: "1-10", facebook: "facebook.com", twitter: "twitter.com", instagram: "instagram.com", youtube: "youtube.com", linkedin: "linkedin.com", market: "saude")
+
+
 puts "creating 4 people"
 Person.create(name: "Matheus Marotzke", position: "Co Founder", linkedin:"linkedin.com")
 Person.create(name: "Rodrigo Tognini", position: "Co Founder", linkedin:"linkedin.com")
@@ -58,15 +65,10 @@ client = Mongo::Client.new(ENV["CLIENT"])
 
 collection = client[:allStartups]
 
-puts "creating Insper startups"
-
-Startup.create( name: "Melon Innovation", website: "https://meloninnovation.com", location: "Insper CoWorking", logo: 'https://meloninnovation.com/img/favicon.ico', pitch: "Construa grandes projetos que exploram oportunidades. Superam desafios. Cometa erros rápidos. Conserte-os. Lance no mercado.", about: "Somos uma empresa de elaboração de projetos. Nosso objetivo é ajudar o seu negócio a prosperar. Inovação, tecnologia e estratégia são os meios que usamos para alcançá-lo.", founded: "Jan 2019", number_of_employees: "1-10", facebook: "facebook.com", twitter: "twitter.com", instagram: "instagram.com", youtube: "youtube.com", linkedin: "linkedin.com", market: "consultoria")
-Startup.create( name: "Banky", website: "https://banky.com.br", location: "Insper CoWorking", logo: 'https://banky.com.br/static/media/banky_logo.418ba382.svg', pitch: "Chegou a conta digital para freelancers, autônomos e startups. Com transparência, atendimento rápido e sem mensalidade.", about: "A conta digital para pessoa jurídica que busca controle e gestāo.", founded: "Nov 2018", number_of_employees: "1-10", facebook: "facebook.com", twitter: "twitter.com", instagram: "instagram.com", youtube: "youtube.com", linkedin: "linkedin.com", market: "financias")
-Startup.create( name: "Blue", website: "https://blue.com.br", location: "Insper CoWorking",logo: Faker::Company.logo, pitch: "A Blue é a nova maneira de prever doenças crônicas, usando Inteligência Artificial para calcular os riscos de acordo com cada perfil.", about: "A principal missão da Inteligência Blue é tornar infinita a ação de construir e viver momentos inesquecíveis, e para isso vem se aprimorando para superar o primeiro passo... Vencer doenças crônicas!!", founded: "Out 2018", number_of_employees: "1-10", facebook: "facebook.com", twitter: "twitter.com", instagram: "instagram.com", youtube: "youtube.com", linkedin: "linkedin.com", market: "saude")
 
 puts "creating 15 startups from mongo"
 cont = 0
-collection.find( {  } ).first(100).each do |startup|
+collection.find( {  } ).first(3000).each do |startup|
   cont += 1
   puts "#{cont} - NEW ELEMENT"
   s_name = startup['name']
