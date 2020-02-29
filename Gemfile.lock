@@ -1,8 +1,8 @@
 GIT
-  remote: git://github.com/doabit/semantic-ui-sass.git
-  revision: 6c8e8dabb46b50fb5e01a4766a63c362501f0dc8
+  remote: https://github.com/doabit/semantic-ui-sass.git
+  revision: 54e508527b1271b118346b03143fbb93a23027fe
   specs:
-    semantic-ui-sass (2.4.0.1)
+    semantic-ui-sass (2.4.2.0)
       sass (>= 3.2)
 
 GIT
@@ -167,7 +167,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
-    rake (12.3.2)
+    rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
