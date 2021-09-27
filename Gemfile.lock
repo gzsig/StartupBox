@@ -1,9 +1,9 @@
 GIT
-  remote: git://github.com/doabit/semantic-ui-sass.git
-  revision: 6c8e8dabb46b50fb5e01a4766a63c362501f0dc8
+  remote: https://github.com/doabit/semantic-ui-sass.git
+  revision: b5266bddd7f048695c81f0e00bdd3d6b099b1d7f
   specs:
-    semantic-ui-sass (2.4.0.1)
-      sass (>= 3.2)
+    semantic-ui-sass (2.4.4.0)
+      sassc
 
 GIT
   remote: https://github.com/stympy/faker.git
@@ -114,14 +114,15 @@ GEM
     method_source (0.9.2)
     mimemagic (0.3.3)
     mini_mime (1.0.1)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.6.1)
     minitest (5.11.3)
     mongo (2.8.0)
       bson (>= 4.4.2, < 5.0.0)
     msgpack (1.2.10)
     nio4r (2.3.1)
-    nokogiri (1.10.3)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     pastel (0.7.2)
       equatable (~> 0.5.0)
       tty-color (~> 0.4.0)
@@ -138,6 +139,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     puma (3.12.1)
+    racc (1.5.2)
     rack (2.0.7)
     rack-proxy (0.6.5)
       rack
@@ -172,11 +174,6 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     redis (4.1.2)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
     sassc (2.0.1)
       ffi (~> 1.9)
       rake
